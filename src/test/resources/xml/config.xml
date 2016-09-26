@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <activation>true</activation>
+    <ipList>
+        <item>127.0.0.1</item>
+        <item>127.0.0.2</item>
+        <item>127.0.0.3</item>    
+    </ipList>
+</config>
