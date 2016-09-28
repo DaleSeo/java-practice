@@ -14,11 +14,11 @@ public class AtomicTest {
 
     public static void main(String[] args) {
         final AtomicTest test = new AtomicTest();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             new Thread() {
                 public void run(){
                     for (int j = 0; j < 1000; j++) {
-                        System.out.println(test.incrementAndGet());
+                        System.out.println(Thread.currentThread().getName() + " : " + test.incrementAndGet());
                     }
                 }
             }.start();

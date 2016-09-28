@@ -22,10 +22,13 @@ class ProcessingThread implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 1; i < 5; i++) {
+	    System.out.println(Thread.currentThread().getName() + " starts.");
+	    for (int i = 1; i < 5; i++) {
             processSomething(i);
             count++;
-        }
+		    System.out.println(Thread.currentThread().getName() + " : " + count);
+	    }
+	    System.out.println(Thread.currentThread().getName() + " ends.");
     }
 
     public int getCount() {
@@ -34,7 +37,7 @@ class ProcessingThread implements Runnable {
 
     private void processSomething(int i) {
         try {
-            Thread.sleep(i * 1000);
+            Thread.sleep(i * 100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

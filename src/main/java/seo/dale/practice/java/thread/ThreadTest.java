@@ -14,17 +14,17 @@ public class ThreadTest implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(this.seq + " thread starts.");
+        System.out.println(Thread.currentThread().getName() + " starts.");
         try {
             Thread.sleep((int) (1000 * Math.random()));
         }catch(Exception e) {
         }
-        System.out.println(this.seq + " thread ends.");
+        System.out.println(Thread.currentThread().getName() + " ends.");
     }
 
     public static void main(String[] args) {
-        System.out.println("Main thread starts.");
-        for(int i=0; i<10; i++) {
+        System.out.println(Thread.currentThread().getName() + " starts.");
+        for(int i = 0; i < 10; i++) {
             Thread thread = new Thread(new ThreadTest(i));
             thread.start();
             try {
@@ -32,7 +32,7 @@ public class ThreadTest implements Runnable {
             } catch (InterruptedException e) {
             }
         }
-        System.out.println("Main thread ends.");
+        System.out.println(Thread.currentThread().getName() + " ends.");
     }
 
 }
