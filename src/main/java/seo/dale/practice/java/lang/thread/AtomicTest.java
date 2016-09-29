@@ -1,4 +1,4 @@
-package seo.dale.practice.java.thread;
+package seo.dale.practice.java.lang.thread;
 
 /**
  * http://egloos.zum.com/iilii/v/5564982

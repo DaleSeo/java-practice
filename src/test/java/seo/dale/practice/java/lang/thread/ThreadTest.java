@@ -1,4 +1,4 @@
-package seo.dale.practice.java.lang;
+package seo.dale.practice.java.lang.thread;
 
 import org.junit.Test;
 

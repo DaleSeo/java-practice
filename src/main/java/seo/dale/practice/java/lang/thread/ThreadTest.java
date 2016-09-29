@@ -1,4 +1,4 @@
-package seo.dale.practice.java.thread;
+package seo.dale.practice.java.lang.thread;
 
 /**
  * https://wikidocs.net/230
@@ -16,7 +16,7 @@ public class ThreadTest implements Runnable {
     public void run() {
         System.out.println(Thread.currentThread().getName() + " starts.");
         try {
-            Thread.sleep((int) (1000 * Math.random()));
+            Thread.sleep((int) (10000 * Math.random()));
         }catch(Exception e) {
         }
         System.out.println(Thread.currentThread().getName() + " ends.");
@@ -27,10 +27,6 @@ public class ThreadTest implements Runnable {
         for(int i = 0; i < 10; i++) {
             Thread thread = new Thread(new ThreadTest(i));
             thread.start();
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-            }
         }
         System.out.println(Thread.currentThread().getName() + " ends.");
     }

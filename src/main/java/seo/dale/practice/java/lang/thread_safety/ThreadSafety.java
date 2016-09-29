@@ -1,4 +1,4 @@
-package seo.dale.practice.java.thread_safety;
+package seo.dale.practice.java.lang.thread_safety;
 
 public class ThreadSafety {
 
