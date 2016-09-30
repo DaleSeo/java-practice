@@ -1,13 +1,19 @@
 package seo.dale.practice.java.util;
 
-import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 
 import java.util.Scanner;
 
+import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
+
 public class ScannerTest {
 
-	@Ignore
+	@Rule
+	public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
+
+	// @Ignore
 	@Test
 	public void test() {
 		Scanner input = new Scanner(System.in);

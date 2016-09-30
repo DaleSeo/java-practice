@@ -4,9 +4,9 @@ import org.junit.Test;
 
 /**
  * CPU jobs takes more time in multi thread due to context switching.
- * @author 서대영(DAEYOUNG SEO)/Onestore/SKP
+ * @author Dale Seo
  */
-public class ThreadPerformanceTest {
+public class ThreadCpuPerformanceTest {
 
 	@Test
 	public void testSingleThread() {
