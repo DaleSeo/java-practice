@@ -3,6 +3,7 @@ package seo.dale.practice.java.util;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +34,42 @@ public class SetTest {
         assertFalse(person1AgainAdded);
         assertEquals(3, people.size());
     }
+
+	/**
+	 * The intersection of the two sets.
+	 */
+	@Test
+	public void testRetainAll() {
+	    Set<Integer> setA = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+		Set<Integer> setB = new HashSet<>(Arrays.asList(9, 8, 7, 6, 5, 4, 3));
+	    setA.retainAll(setB);
+	    Set<Integer> intersection = new HashSet<>(Arrays.asList(3, 4, 5));
+	    assertEquals(setA, intersection);
+    }
+
+	/**
+	 * The union of the two sets.
+	 */
+	@Test
+	public void testAddAll() {
+	    Set<Integer> setA = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+	    Set<Integer> setB = new HashSet<>(Arrays.asList(9, 8, 7, 6, 5, 4, 3));
+	    setA.addAll(setB);
+	    Set<Integer> union = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+	    assertEquals(setA, union);
+    }
+
+	/**
+	 * The difference of the two sets.
+	 */
+	@Test
+	public void testRemoveAll() {
+		Set<Integer> setA = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+		Set<Integer> setB = new HashSet<>(Arrays.asList(9, 8, 7, 6, 5, 4, 3));
+		setA.removeAll(setB);
+		Set<Integer> union = new HashSet<>(Arrays.asList(1, 2));
+		assertEquals(setA, union);
+	}
 
 }
 
