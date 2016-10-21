@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class StringTest {
 
@@ -47,6 +48,22 @@ public class StringTest {
 		String message = "find you will";
 		assertEquals("you will", message.substring(5));
 		assertEquals("you", message.substring(5, 8));
+	}
+
+	@Test
+	public void testHashCode() {
+		String str1 = new String();
+		System.out.println(str1.hashCode());
+
+		String str2 = new String();
+		System.out.println(str2.hashCode());
+
+		assertSame(str1.hashCode(), str2.hashCode());
+
+		String str3 = "";
+		System.out.println(str3.hashCode());
+
+		assertSame(str2.hashCode(), str3.hashCode());
 	}
 
 }
