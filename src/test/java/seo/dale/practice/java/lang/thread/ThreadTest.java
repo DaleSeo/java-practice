@@ -28,24 +28,24 @@ public class ThreadTest {
 	}
 
 	@Test
-	public void testIsAlive() throws InterruptedException {
+	public void testGetState() throws InterruptedException {
 		Thread thread = new Thread(() -> {
-			System.out.println("START");
 			try {
 				Thread.sleep(2000);
 				if (Thread.currentThread().isAlive()) {
-					System.out.println("I'm still alive!");
+					System.out.println("My state is " + Thread.currentThread().getState());
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("END");
 		}, "My thread");
 
 		assertFalse(thread.isAlive());
+		System.out.println("My state is " + thread.getState());
 		thread.start();
 		thread.join(); // waits for this thread to die
 		assertFalse(thread.isAlive());
+		System.out.println("My state is " + thread.getState());
 	}
 
 	/**
