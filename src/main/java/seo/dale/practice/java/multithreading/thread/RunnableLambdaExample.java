@@ -1,6 +1,6 @@
 package seo.dale.practice.java.multithreading.thread;
 
-public class RunnableLambdaTest {
+public class RunnableLambdaExample {
 
 	public static void main(String[] args) {
 		Thread thread = new Thread(() -> {

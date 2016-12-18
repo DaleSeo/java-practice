@@ -1,0 +1,2 @@
+- http://www.journaldev.com/1024/java-thread-join-example
+- http://alecture.blogspot.kr/2011/05/join.html

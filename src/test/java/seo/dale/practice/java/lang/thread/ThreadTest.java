@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -24,6 +25,27 @@ public class ThreadTest {
 	@Test
 	public void testGetName() {
 		new Thread(() -> assertEquals("My thread", Thread.currentThread().getName()), "My thread").start();
+	}
+
+	@Test
+	public void testIsAlive() throws InterruptedException {
+		Thread thread = new Thread(() -> {
+			System.out.println("START");
+			try {
+				Thread.sleep(2000);
+				if (Thread.currentThread().isAlive()) {
+					System.out.println("I'm still alive!");
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.println("END");
+		}, "My thread");
+
+		assertFalse(thread.isAlive());
+		thread.start();
+		thread.join(); // waits for this thread to die
+		assertFalse(thread.isAlive());
 	}
 
 	/**
