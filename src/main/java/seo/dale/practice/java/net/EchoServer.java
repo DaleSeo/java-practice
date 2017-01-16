@@ -18,7 +18,9 @@ public class EchoServer {
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         ) {
-            String inputLine;
+	        System.out.println("- serverSocket: " + serverSocket);
+	        System.out.println("- clientSocket: " + clientSocket);
+	        String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 out.println(inputLine);
             }

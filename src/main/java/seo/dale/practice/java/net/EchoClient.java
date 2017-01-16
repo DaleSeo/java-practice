@@ -20,6 +20,7 @@ public class EchoClient {
                 BufferedReader in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
                 BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))
         ) {
+	        System.out.println("- echoSocket:" + echoSocket);
             String userInput;
             while ((userInput = stdIn.readLine()) != null) {
                 out.println(userInput);
