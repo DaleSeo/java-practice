@@ -5,9 +5,7 @@ import org.junit.Test;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertFalse;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * @author Dale Seo
@@ -71,6 +69,62 @@ public class ThreadTest {
 		th2.start();
 		th2.join();
 		assertEquals(Thread.State.TERMINATED, th2.getState());
+	}
+
+	/**
+	 * https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html
+	 */
+	@Test
+	public void testInterrupt() throws InterruptedException {
+		Thread th = new Thread(() -> {
+			for (int i = 0; i < 10; i++) {
+				try {
+					Thread.sleep(1000);
+					System.out.printf("[%d] Running~%n", i);
+				} catch (InterruptedException e) {
+					System.out.printf("[%d] Interrupted!%n", i);
+				}
+			}
+		});
+
+		boolean isInterrupted;
+
+		th.start();
+		Thread.sleep(5000);
+
+		isInterrupted = th.isInterrupted();
+		System.out.println("- isInterrupted: " + isInterrupted);
+		assertFalse(isInterrupted);
+
+		th.interrupt();
+
+		isInterrupted = th.isInterrupted();
+		System.out.println("- isInterrupted: " + isInterrupted);
+		assertTrue(isInterrupted);
+
+		th.join();
+
+		isInterrupted = th.isInterrupted();
+		System.out.println("- isInterrupted: " + isInterrupted);
+		assertFalse(isInterrupted);
+	}
+
+	@Test
+	public void test1() {
+		System.out.println(1);
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println(2 + "" + i);
+			try {
+				if (i == 5) {
+					throw new RuntimeException();
+				}
+			} catch (Exception e) {
+				System.out.println(3);
+			}
+		}
+
+		System.out.println(4);
 	}
 
 	@Test
