@@ -18,10 +18,15 @@ public class Deadlock {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		final Friend alphonse = new Friend("Alphonse");
 		final Friend gaston = new Friend("Gaston");
-		new Thread(() -> alphonse.bow(gaston)).start();
-		new Thread(() -> gaston.bow(alphonse)).start();
+
+		Thread th1 = new Thread(() -> alphonse.bow(gaston));
+		Thread th2 = new Thread(() -> gaston.bow(alphonse));
+
+		th1.start();
+		// th1.join();
+		th2.start();
 	}
 }
