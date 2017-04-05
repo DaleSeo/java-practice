@@ -4,12 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * @author 서대영(DAEYOUNG SEO)/Onestore/SKP
- */
 public class TreeSetTest {
 
 	private TreeSet<Node> set;
@@ -26,6 +24,11 @@ public class TreeSetTest {
 		set.add(new Node(7, "Joy", 60));
 		set.add(new Node(8, "Denny", 90));
 		set.add(new Node(9, "Jack", 70));
+	}
+
+	@Test
+	public void testSet() {
+		set.forEach(System.out::println);
 	}
 
 	@Test
@@ -73,6 +76,21 @@ public class TreeSetTest {
 				return this.id - o.id;
 			}
 		}
+	}
+
+	@Test
+	public void testFloorCeilingLowerHigher() {
+		NavigableSet<String> navigableSet = new TreeSet<String>();
+		navigableSet.add("A");
+		navigableSet.add("C");
+		navigableSet.add("E");
+		navigableSet.add("G");
+
+		Node node = new Node(2, "Kate", 80);
+		System.out.println(set.floor(node));
+		System.out.println(set.ceiling(node));
+		System.out.println(set.lower(node));
+		System.out.println(set.higher(node));
 	}
 
 }
