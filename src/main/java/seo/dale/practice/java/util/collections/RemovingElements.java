@@ -1,49 +1,52 @@
 package seo.dale.practice.java.util.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
+/**
+ * https://stackoverflow.com/questions/223918/iterating-through-a-collection-avoiding-concurrentmodificationexception-when-re
+ */
 public class RemovingElements {
 
     public static void main(String[] args) {
-        Collection<String> fruits = new ArrayList<>();
-        fruits.addAll(Arrays.asList("Apple", "Banana", "Coconut", "Lemon", "Melon", "Orange", "Strawberry"));
-//
-//        System.out.println("---");
-//        fruits.stream().forEach(fruit -> System.out.println(fruit));
+        List<Character> letters = new ArrayList<>();
+        letters.addAll(Arrays.asList('A', 'B', '1', '2', 'C', 'D', '3', 'E', '4', '5'));
 
-        System.out.println("---");
-        for (String fruit : fruits) {
-            System.out.println(fruit);
-        }
-
-//        System.out.println("---");
-//        for (Iterator<String> iter = fruits.iterator(); iter.hasNext(); ) {
-//            // System.out.println(iter.next());
-//            String fruit = iter.next();
-//            if (fruit.length() > 5) {
-//                iter.remove();
+//        for (Character letter : letters) {
+//            if (Character.isDigit(letter)) {
+//                System.out.println(letter + " is a digit.");
+//                letters.remove(letter);
 //            }
 //        }
-//        System.out.println("#fruits: " + fruits);
 
-        System.out.println("---");
-        fruits.stream()
-                .filter(fruit -> fruit.length() <= 5)
-                .forEach(fruit -> System.out.println(fruit));
+//        for (int i = 0; i < letters.size(); i++) {
+//            Character letter = letters.get(i);
+//            if (Character.isDigit(letter)) {
+//                System.out.println(letter + " is a digit.");
+//                letters.remove(i);
+//            }
+//        }
+//        System.out.println(letters);
 
-        System.out.println("---");
-        List<String> fruitList = (List) fruits;
-        for (int i = 0; i < fruitList.size(); i++) {
-            String fruit = fruitList.get(i);
-            if (fruit.length() > 5) {
-                fruitList.remove(fruit);
-                System.out.println("delete " + i + ":" + fruit);
+        List<Character> alphabets = letters.stream()
+                .filter(Character::isAlphabetic)
+                .collect(Collectors.toList());
+
+        System.out.println(alphabets);
+
+        for (Iterator<Character> iter = letters.iterator(); iter.hasNext(); ) {
+            Character letter = iter.next();
+            if (Character.isDigit(letter)) {
+                System.out.println(letter + " is a digit.");
+                iter.remove();
             }
         }
-        System.out.println("#fruitList: " + fruitList);
+
+        System.out.println(letters);
+
+        letters.removeIf(Character::isDigit);
+
+        System.out.println(letters);
     }
 
 
