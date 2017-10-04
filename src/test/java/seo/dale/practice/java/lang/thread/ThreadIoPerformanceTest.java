@@ -10,7 +10,7 @@ public class ThreadIoPerformanceTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		ThreadIoPerformanceTest test = new ThreadIoPerformanceTest();
-		// test.testSingleThread();
+		// streaming.testSingleThread();
 		test.testMultiThread();
 	}
 

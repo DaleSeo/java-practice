@@ -12,7 +12,7 @@ public class PropertiesTest {
 	@Test
 	public void test() throws IOException {
 		Properties pp = new Properties();
-		pp.load(getClass().getResourceAsStream("test.properties"));
+		pp.load(getClass().getResourceAsStream("streaming.properties"));
 		System.out.println(pp);
 	}
 

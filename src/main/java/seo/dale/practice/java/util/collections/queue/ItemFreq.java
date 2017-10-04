@@ -13,4 +13,12 @@ public class ItemFreq {
         this.freq = freq;
     }
 
+    public String getItem() {
+        return item;
+    }
+
+    public int getFreq() {
+        return freq;
+    }
+
 }

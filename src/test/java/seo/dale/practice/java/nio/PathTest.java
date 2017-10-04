@@ -99,7 +99,7 @@ public class PathTest {
 
     @Test
     public void test() {
-        String rootDirectory = getClass().getResource("/").getPath(); // "/D:/workspace/dale-example/target/test-classes/" Why is there '/' at the beginning?
+        String rootDirectory = getClass().getResource("/").getPath(); // "/D:/workspace/dale-example/target/streaming-classes/" Why is there '/' at the beginning?
         Path rootPath = Paths.get(rootDirectory.substring(1));
         System.out.println("rootPath : " + rootPath);
         Stack<Path> stack = new Stack<>();

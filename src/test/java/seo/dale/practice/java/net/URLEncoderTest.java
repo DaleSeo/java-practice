@@ -12,7 +12,7 @@ public class URLEncoderTest {
 
 	@Test
 	public void test() {
-		String urlPrefix = "http://www.example.com/test.php?ids=";
+		String urlPrefix = "http://www.example.com/streaming.php?ids=";
 		String value = "1|2";
 
 		String url = urlPrefix + value;

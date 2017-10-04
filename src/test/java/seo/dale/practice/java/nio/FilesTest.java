@@ -16,7 +16,7 @@ public class FilesTest {
 
 	@Test
 	public void testWriteAndReadText() throws IOException {
-		Path path = Paths.get("D:/tmp/test.txt");
+		Path path = Paths.get("D:/tmp/streaming.txt");
 		Charset charset = Charset.forName("UTF-8");
 		String content = "이름 :\n\t서대영\n나이 :\n\t34";
 
@@ -37,7 +37,7 @@ public class FilesTest {
 		String content = "12345";
 		byte[] input = content.getBytes();
 
-		Path path = Paths.get("D:/tmp/test.txt");
+		Path path = Paths.get("D:/tmp/streaming.txt");
 		Files.write(path, input);
 
 		byte[] output = Files.readAllBytes(path);
@@ -46,7 +46,7 @@ public class FilesTest {
 
 	@Test
 	public void testMetadata() throws IOException {
-		Path path = Paths.get("D:/tmp/test.txt");
+		Path path = Paths.get("D:/tmp/streaming.txt");
 		BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
 
 		System.out.println("- creationTime : " + attributes.creationTime());
@@ -65,8 +65,8 @@ public class FilesTest {
 	 */
 	@Test
 	public void testCopy() throws IOException {
-		Path source = Paths.get("D:/tmp/test.txt");
-		Path target = Paths.get("D:/tmp/test-1.txt");
+		Path source = Paths.get("D:/tmp/streaming.txt");
+		Path target = Paths.get("D:/tmp/streaming-1.txt");
 		Files.copy(source, target, REPLACE_EXISTING);
 	}
 
@@ -74,7 +74,7 @@ public class FilesTest {
 	public void testCopyFromStream() throws IOException {
 		String content = "abcde";
 		InputStream input = new ByteArrayInputStream(content.getBytes());
-		Path target = Paths.get("D:/tmp/test-1.txt");
+		Path target = Paths.get("D:/tmp/streaming-1.txt");
 		Files.copy(input, target, REPLACE_EXISTING);
 	}
 
