@@ -29,6 +29,7 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'streaming.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12',
+                'org.mockito:mockito-all:1.10.19',
                 'org.assertj:assertj-core:3.5.2',
                 'com.github.stefanbirkner:system-rules:1.16.1'
 }
