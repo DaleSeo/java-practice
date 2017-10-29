@@ -19,7 +19,7 @@ public class CalendarTest {
 	}
 	
 	/**
-	 * Calendar's getInstance method returns a Calendar object whose calendar fields have been initialized with the current date and time.
+	 * Calendar's getInstance method returns a Calendar object whose calendar fields have been initialized with the current created and time.
 	 */
 	@Test
 	public void testGetInstance() {

@@ -59,7 +59,7 @@ public class TreeMapTest {
 					"id=" + id +
 					", name='" + name + '\'' +
 					", score=" + score +
-					", date=" + date +
+					", created=" + date +
 					'}';
 		}
 	}

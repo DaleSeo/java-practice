@@ -62,7 +62,7 @@ public class TreeSetTest {
 					"id=" + id +
 					", name='" + name + '\'' +
 					", score=" + score +
-					", date=" + date +
+					", created=" + date +
 					'}';
 		}
 
