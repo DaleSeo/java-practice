@@ -10,6 +10,9 @@ import java.time.zone.ZoneRulesException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * http://d2.naver.com/helloworld/645609
+ */
 public class Jsr310Test {
     @Test
     public void shouldGetAfterOneDay() {
