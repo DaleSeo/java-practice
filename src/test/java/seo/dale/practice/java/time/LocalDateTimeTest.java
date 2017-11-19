@@ -8,9 +8,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 /**
+ * https://docs.oracle.com/javase/tutorial/datetime/iso/datetime.html
  * http://blog.eomdev.com/java/2016/04/01/%EC%9E%90%EB%B0%948%EC%9D%98-java.time-%ED%8C%A8%ED%82%A4%EC%A7%80.html
  */
 public class LocalDateTimeTest {
+    @Test
+    public void testToString() {
+        System.out.printf("now: %s%n", LocalDateTime.now());
+
+        System.out.printf("Apr 15, 1994 @ 11:30am: %s%n",
+                LocalDateTime.of(1994, Month.APRIL, 15, 11, 30));
+
+        System.out.printf("now (from Instant): %s%n",
+                LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()));
+
+        System.out.printf("6 months from now: %s%n",
+                LocalDateTime.now().plusMonths(6));
+
+        System.out.printf("6 months ago: %s%n",
+                LocalDateTime.now().minusMonths(6));
+    }
+
     @Test
     public void testPeriod() {
         LocalDate startTime = LocalDate.now();
@@ -35,11 +53,5 @@ public class LocalDateTimeTest {
     public void mustThrowDateTimeExceptionForInvalidHourOfDay() {
         LocalTime.of(24, 35, 27);
         fail();
-    }
-
-    @Test
-    public void testToString() {
-        LocalDateTime localDateTime = LocalDateTime.of(2016, 4, 1, 8, 30, 59, 1234);
-        assertThat(localDateTime).hasToString("2016-04-01T08:30:59.000001234");
     }
 }
